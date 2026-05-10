@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Mother's Day 💐</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --rose:#d4607a;--rose-light:#f0a0b4;--blush:#fce8ee;--peach:#fdf0e0;
+  --gold:#c9943a;--gold-light:#f0d080;--cream:#fdf8f2;
+  --deep:#5a1a2a;--wine:#8b2340;--green:#6a8f6e;
+}
+html{scroll-behavior:smooth}
+body{background:var(--cream);font-family:'Cormorant Garamond',serif;overflow-x:hidden;cursor:none}
+
+.cursor-dot{width:8px;height:8px;background:var(--rose);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:99999;transform:translate(-50%,-50%)}
+.cursor-ring{width:36px;height:36px;border:1.5px solid var(--rose-light);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);transition:left .12s ease,top .12s ease;opacity:.7}
+
+.petal-wrap{position:fixed;top:0;left:0;width:100vw;height:100vh;pointer-events:none;z-index:2;overflow:hidden}
+.petal{position:absolute;top:-80px;opacity:.75;animation:petalFall linear infinite}
+@keyframes petalFall{
+  0%{transform:translateY(0) rotate(0deg) translateX(0);opacity:.8}
+  50%{transform:translateY(55vh) rotate(200deg) translateX(35px);opacity:.6}
+  100%{transform:translateY(115vh) rotate(400deg) translateX(-15px);opacity:0}
+}
+
+#starCanvas{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:1;opacity:.5}
+
+/* HERO */
+.hero{
+  min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  position:relative;z-index:10;text-align:center;padding:80px 30px 60px;
+  background:radial-gradient(ellipse at 50% 35%,rgba(252,232,238,.9) 0%,rgba(253,248,242,.5) 65%,transparent 100%);
+}
+.hero-ornament{display:flex;align-items:center;gap:18px;margin-bottom:28px;opacity:0;animation:fadeUp 1s .2s ease forwards}
+.ornament-line{width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--gold));border:none}
+.ornament-line.r{background:linear-gradient(90deg,var(--gold),transparent)}
+.ornament-diamond{width:8px;height:8px;background:var(--gold);transform:rotate(45deg)}
+
+.eyebrow{font-family:'Great Vibes',cursive;font-size:clamp(1.4rem,4vw,2.2rem);color:var(--rose);letter-spacing:.02em;opacity:0;animation:fadeUp 1s .35s ease forwards;margin-bottom:10px}
+
+.hero-title{
+  font-family:'Playfair Display',serif;font-size:clamp(4rem,13vw,10rem);
+  color:var(--deep);line-height:1;font-weight:900;
+  opacity:0;animation:fadeUp 1.2s .5s ease forwards;
+  text-shadow:0 2px 40px rgba(90,26,42,.08);
+}
+.hero-title em{font-style:italic;color:var(--wine);display:block;font-size:clamp(3rem,10vw,7.5rem)}
+
+.gold-divider{display:flex;align-items:center;justify-content:center;gap:12px;margin:28px 0;opacity:0;animation:fadeUp 1s .9s ease forwards}
+.gold-divider span{font-size:1.4rem}
+.gold-line{width:80px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+
+.hero-poem{font-size:clamp(1.05rem,2.8vw,1.5rem);color:var(--wine);max-width:540px;line-height:2.1;font-style:italic;font-weight:300;opacity:0;animation:fadeUp 1s 1.1s ease forwards;margin-bottom:40px}
+
+.flower-row{display:flex;justify-content:center;gap:20px;margin:10px 0;opacity:0;animation:fadeUp 1s 1.3s ease forwards}
+.flower-item{font-size:2rem;animation:floatBob ease-in-out infinite}
+.flower-item:nth-child(1){animation-duration:3.2s;animation-delay:0s}
+.flower-item:nth-child(2){animation-duration:2.8s;animation-delay:.4s}
+.flower-item:nth-child(3){animation-duration:3.5s;animation-delay:.2s;font-size:2.6rem}
+.flower-item:nth-child(4){animation-duration:2.9s;animation-delay:.6s}
+.flower-item:nth-child(5){animation-duration:3.1s;animation-delay:.1s}
+@keyframes floatBob{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-14px) rotate(3deg)}}
+
+/* MUSIC */
+.music-wrap{
+  position:relative;z-index:10;
+  background:linear-gradient(135deg,var(--deep) 0%,var(--wine) 100%);
+  padding:60px 40px;text-align:center;overflow:hidden;
+}
+.music-wrap::before,.music-wrap::after{content:'';position:absolute;border-radius:50%;background:rgba(255,255,255,.04);pointer-events:none}
+.music-wrap::before{width:500px;height:500px;top:-200px;left:-150px}
+.music-wrap::after{width:400px;height:400px;bottom:-180px;right:-100px}
+.music-title{font-family:'Great Vibes',cursive;font-size:clamp(2rem,5vw,3rem);color:var(--gold-light);margin-bottom:8px;position:relative;z-index:2}
+.music-sub{color:rgba(252,232,238,.7);font-style:italic;font-size:1rem;margin-bottom:28px;letter-spacing:.05em;position:relative;z-index:2}
+.upload-label{
+  display:inline-flex;align-items:center;gap:12px;
+  background:transparent;border:1.5px solid rgba(240,208,128,.6);
+  color:var(--gold-light);padding:14px 36px;border-radius:60px;
+  font-family:'Cormorant Garamond',serif;font-size:1.15rem;
+  cursor:pointer;transition:all .4s;letter-spacing:.08em;position:relative;z-index:2;font-style:italic;
+}
+.upload-label:hover{background:rgba(240,208,128,.15);border-color:var(--gold-light);transform:scale(1.04)}
+#audioFile{display:none}
+#audioPlayer{margin-top:24px;display:none;position:relative;z-index:2}
+audio{border-radius:60px;max-width:380px;width:100%}
+
+/* SECTION HEADER */
+.section-header{text-align:center;padding:80px 30px 20px;position:relative;z-index:10}
+.section-tag{font-family:'Great Vibes',cursive;font-size:clamp(1.6rem,4vw,2.4rem);color:var(--rose);display:block;margin-bottom:8px}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,5vw,3.2rem);color:var(--deep);font-style:italic;font-weight:400}
+.section-rule{width:120px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:20px auto 0;border:none}
+
+/* WISH CARDS */
+.wishes{padding:20px 30px 80px;max-width:960px;margin:0 auto;position:relative;z-index:10}
+.wish-card{
+  display:grid;grid-template-columns:80px 1fr;
+  background:white;border-radius:28px;margin-bottom:28px;overflow:hidden;
+  box-shadow:0 8px 60px rgba(90,26,42,.08),0 2px 12px rgba(90,26,42,.04);
+  border:1px solid rgba(212,96,122,.12);
+  opacity:0;transform:translateY(50px) scale(.98);
+  transition:opacity .9s ease,transform .9s ease,box-shadow .4s;
+}
+.wish-card:hover{box-shadow:0 20px 80px rgba(90,26,42,.16);transform:translateY(-6px) scale(1.005) !important}
+.wish-card.visible{opacity:1;transform:translateY(0) scale(1)}
+.wish-side{
+  background:linear-gradient(180deg,var(--rose) 0%,var(--wine) 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;padding:30px 10px;gap:16px;
+}
+.wish-num{font-family:'Playfair Display',serif;font-size:2.2rem;font-style:italic;color:rgba(255,255,255,.35);line-height:1}
+.wish-emoji{font-size:1.8rem;filter:drop-shadow(0 2px 8px rgba(0,0,0,.2))}
+.wish-body{padding:36px 40px 36px 32px;position:relative;overflow:hidden}
+.wish-body::after{content:attr(data-bg);position:absolute;right:-10px;bottom:-20px;font-size:7rem;opacity:.05;transform:rotate(20deg);pointer-events:none;line-height:1}
+.wish-heading{font-family:'Playfair Display',serif;font-size:1.15rem;font-style:italic;color:var(--rose);margin-bottom:10px;letter-spacing:.03em}
+.wish-text{font-size:clamp(1rem,2.2vw,1.25rem);color:#5a3040;line-height:1.95;font-weight:300}
+.wish-text strong{color:var(--wine);font-weight:400;font-style:italic}
+
+/* QUOTE */
+.quote-wrap{
+  position:relative;z-index:10;overflow:hidden;
+  background:linear-gradient(160deg,var(--blush) 0%,var(--peach) 100%);
+  padding:100px 40px;text-align:center;
+}
+.quote-wrap::before{
+  content:'\201C';font-family:'Playfair Display',serif;font-size:28rem;font-style:italic;
+  color:var(--rose);opacity:.06;position:absolute;top:-80px;left:-40px;line-height:1;pointer-events:none;
+}
+.quote-inner{max-width:680px;margin:0 auto;position:relative;z-index:2}
+.quote-text{
+  font-family:'Playfair Display',serif;font-size:clamp(1.6rem,4vw,2.8rem);
+  color:var(--deep);font-style:italic;line-height:1.5;
+  opacity:0;transform:translateY(30px);transition:opacity 1s,transform 1s;
+}
+.quote-text.visible{opacity:1;transform:translateY(0)}
+.quote-author{
+  margin-top:28px;font-size:1rem;color:var(--rose);letter-spacing:.15em;
+  text-transform:uppercase;font-style:normal;
+  opacity:0;transform:translateY(20px);transition:opacity 1s .3s,transform 1s .3s;
+}
+.quote-author.visible{opacity:1;transform:translateY(0)}
+.quote-flourish{font-size:2rem;margin:20px 0;display:block;opacity:.5}
+
+/* LETTER */
+.letter-wrap{position:relative;z-index:10;max-width:700px;margin:0 auto;padding:80px 30px}
+.letter-paper{
+  background:white;border-radius:4px 4px 24px 24px;padding:60px 60px 50px;
+  box-shadow:0 20px 80px rgba(90,26,42,.1),0 4px 20px rgba(90,26,42,.06);
+  border:1px solid rgba(212,96,122,.1);position:relative;
+  opacity:0;transform:translateY(50px) rotate(-.5deg);transition:opacity 1s,transform 1s;
+}
+.letter-paper.visible{opacity:1;transform:translateY(0) rotate(0deg)}
+.letter-paper::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:8px;
+  background:linear-gradient(90deg,var(--rose),var(--gold),var(--rose-light),var(--gold),var(--rose));
+  border-radius:4px 4px 0 0;
+}
+.letter-date{font-style:italic;color:var(--rose);font-size:.95rem;margin-bottom:28px;letter-spacing:.05em}
+.letter-salutation{font-family:'Great Vibes',cursive;font-size:clamp(1.8rem,5vw,2.8rem);color:var(--wine);margin-bottom:20px}
+.letter-body{font-size:clamp(1rem,2.2vw,1.2rem);color:#5a3040;line-height:2.1;font-weight:300;font-style:italic}
+.letter-sign{font-family:'Great Vibes',cursive;font-size:clamp(1.6rem,4vw,2.4rem);color:var(--rose);margin-top:30px}
+.letter-xs{font-size:1.1rem;color:var(--rose-light);margin-top:4px;letter-spacing:.1em}
+
+/* FINALE */
+.finale{
+  position:relative;z-index:10;text-align:center;padding:100px 30px 80px;
+  background:linear-gradient(180deg,var(--cream) 0%,var(--blush) 100%);overflow:hidden;
+}
+.finale::before{content:'';position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(212,96,122,.12) 0%,transparent 70%);top:-200px;left:-200px;pointer-events:none}
+.finale::after{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(201,148,58,.1) 0%,transparent 70%);bottom:-150px;right:-150px;pointer-events:none}
+
+.finale-big{font-family:'Great Vibes',cursive;font-size:clamp(3rem,10vw,7rem);color:var(--wine);line-height:1.2;opacity:0;transform:scale(.85);transition:opacity 1.2s,transform 1.2s}
+.finale-big.visible{opacity:1;transform:scale(1)}
+.finale-sub{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1rem,2.5vw,1.5rem);color:var(--rose);margin-top:16px;letter-spacing:.05em;opacity:0;transition:opacity 1s .4s}
+.finale-sub.visible{opacity:1}
+
+.hearts-orbit{position:relative;width:200px;height:200px;margin:50px auto}
+.heart-orbit{position:absolute;font-size:1.6rem;top:50%;left:50%;animation:orbit linear infinite}
+@keyframes orbit{0%{transform:rotate(0deg) translateX(80px) rotate(0deg)}100%{transform:rotate(360deg) translateX(80px) rotate(-360deg)}}
+.orbit-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:3rem;animation:heartPulse 1.4s ease-in-out infinite}
+@keyframes heartPulse{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.25)}}
+
+/* FOOTER */
+.site-footer{position:relative;z-index:10;background:var(--deep);padding:40px 30px;text-align:center}
+.footer-flowers{font-size:1.5rem;letter-spacing:8px;opacity:.5;margin-bottom:12px}
+.footer-text{color:rgba(252,232,238,.5);font-style:italic;font-size:.95rem;letter-spacing:.08em}
+
+.sparkle{position:fixed;pointer-events:none;z-index:9997;font-size:1.6rem;animation:sparkleUp .9s ease forwards}
+@keyframes sparkleUp{0%{transform:scale(0) translateY(0);opacity:1}100%{transform:scale(1.6) translateY(-80px);opacity:0}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(35px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:640px){
+  .wish-card{grid-template-columns:60px 1fr}
+  .wish-body{padding:28px 24px 28px 20px}
+  .letter-paper{padding:40px 30px 36px}
+}
+</style>
+</head>
+<body>
+
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="petal-wrap" id="petals"></div>
+<canvas id="starCanvas"></canvas>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-ornament">
+    <div class="ornament-line"></div>
+    <div class="ornament-diamond"></div>
+    <div class="ornament-line r"></div>
+  </div>
+  <p class="eyebrow">For the one who means everything</p>
+  <h1 class="hero-title">
+    Happy<br>
+    <em>Mother's Day</em>
+  </h1>
+  <div class="gold-divider">
+    <div class="gold-line"></div>
+    <span>🌸</span>
+    <div class="gold-line"></div>
+  </div>
+  <p class="hero-poem">
+    To the woman whose love is my shelter,<br>
+    whose voice is my home, whose heart<br>
+    is the most beautiful place I know.
+  </p>
+  <div class="flower-row">
+    <span class="flower-item">🌷</span>
+    <span class="flower-item">🌺</span>
+    <span class="flower-item">🌸</span>
+    <span class="flower-item">🌹</span>
+    <span class="flower-item">💐</span>
+  </div>
+</section>
+
+<!-- MUSIC -->
+<section class="music-wrap">
+  <p class="music-title">Your Song for Her</p>
+  <p class="music-sub">Upload a melody that captures everything words cannot</p>
+  <label class="upload-label" for="audioFile">♪ &nbsp; Choose a Music File</label>
+  <input type="file" id="audioFile" accept="audio/*">
+  <div id="audioPlayer"><audio controls id="audioEl"></audio></div>
+</section>
+
+<!-- WISHES -->
+<div class="section-header">
+  <span class="section-tag">From my heart to yours</span>
+  <h2 class="section-title">Five Wishes for You, Mama</h2>
+  <hr class="section-rule">
+</div>
+
+<div class="wishes">
+  <div class="wish-card">
+    <div class="wish-side"><span class="wish-num">I</span><span class="wish-emoji">🌺</span></div>
+    <div class="wish-body" data-bg="🌺">
+      <p class="wish-heading">My First Home</p>
+      <p class="wish-text">Before I knew the world, I knew <strong>you</strong>. Your heartbeat was my lullaby, your arms my only universe. Thank you for being the warmth I always return to — my first home, my forever safe place.</p>
+    </div>
+  </div>
+  <div class="wish-card">
+    <div class="wish-side"><span class="wish-num">II</span><span class="wish-emoji">✨</span></div>
+    <div class="wish-body" data-bg="✨">
+      <p class="wish-heading">Every Sacrifice Seen</p>
+      <p class="wish-text">Every sleepless night, every silent prayer, every thing you gave up <strong>without me ever asking</strong> — I see it all now. My heart is so full of gratitude it spills into everything I do.</p>
+    </div>
+  </div>
+  <div class="wish-card">
+    <div class="wish-side"><span class="wish-num">III</span><span class="wish-emoji">🌸</span></div>
+    <div class="wish-body" data-bg="🌸">
+      <p class="wish-heading">My Greatest Teacher</p>
+      <p class="wish-text">You taught me to be <strong>brave without being reckless</strong>, to love without holding back, to rise every time I fall. Everything good in me is a reflection of everything that is you.</p>
+    </div>
+  </div>
+  <div class="wish-card">
+    <div class="wish-side"><span class="wish-num">IV</span><span class="wish-emoji">💖</span></div>
+    <div class="wish-body" data-bg="💖">
+      <p class="wish-heading">A Thousand Lifetimes</p>
+      <p class="wish-text">If I could be born a thousand times, in a thousand different worlds — I would spend every one of those lives <strong>finding my way back to you</strong>. Always, always you.</p>
+    </div>
+  </div>
+  <div class="wish-card">
+    <div class="wish-side"><span class="wish-num">V</span><span class="wish-emoji">🌹</span></div>
+    <div class="wish-body" data-bg="🌹">
+      <p class="wish-heading">Today &amp; Always</p>
+      <p class="wish-text">May you feel today <strong>every ounce of joy</strong> that you have poured into me over all these years. You deserve the whole sky, the whole sea, and every flower in every garden.</p>
+    </div>
+  </div>
+</div>
+
+<!-- QUOTE -->
+<section class="quote-wrap">
+  <div class="quote-inner">
+    <span class="quote-flourish">✦ ✦ ✦</span>
+    <p class="quote-text" id="qText">A mother's love is the fuel that enables a normal human being to do the impossible.</p>
+    <p class="quote-author" id="qAuth">— Marion C. Garretty</p>
+  </div>
+</section>
+
+<!-- LETTER -->
+<div class="section-header" style="padding-bottom:10px">
+  <span class="section-tag">Written with love</span>
+  <h2 class="section-title">A Letter for You</h2>
+  <hr class="section-rule">
+</div>
+<div class="letter-wrap">
+  <div class="letter-paper" id="letterPaper">
+    <p class="letter-date">10th of May — Mother's Day</p>
+    <p class="letter-salutation">Dearest Mama,</p>
+    <p class="letter-body">
+      There are feelings that live so deep inside me that no word, in any language, can truly reach them. But I try, because you deserve to know.
+      <br><br>
+      You are the reason I believe in goodness. You are proof that love is not just something we say — it is something we do, every single day, quietly and without applause.
+      <br><br>
+      I watch you and I see strength. I hear you and I feel peace. I think of you and I am home.
+      <br><br>
+      Today is yours. Every flower, every song, every golden moment of this day belongs to you. And tomorrow, and all the days after — you carry my whole heart with you always.
+    </p>
+    <p class="letter-sign">With all my love, forever</p>
+    <p class="letter-xs">x o x o x o</p>
+  </div>
+</div>
+
+<!-- FINALE -->
+<section class="finale">
+  <p class="finale-big" id="finalBig">I love you, Mama.</p>
+  <p class="finale-sub" id="finalSub">Happy Mother's Day — today, tomorrow &amp; always 🌸</p>
+  <div class="hearts-orbit">
+    <div class="orbit-center">💖</div>
+    <div class="heart-orbit" style="animation-duration:4s;animation-delay:0s">🌸</div>
+    <div class="heart-orbit" style="animation-duration:5s;animation-delay:.8s">💕</div>
+    <div class="heart-orbit" style="animation-duration:3.5s;animation-delay:1.5s">✨</div>
+    <div class="heart-orbit" style="animation-duration:4.5s;animation-delay:2.2s">🌷</div>
+    <div class="heart-orbit" style="animation-duration:3.8s;animation-delay:.4s">💗</div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <p class="footer-flowers">🌸 🌷 🌺 🌸 🌷 🌺 🌸</p>
+  <p class="footer-text">Made with a heart full of love — just for her</p>
+</footer>
+
+<script>
+// Cursor
+const dot=document.getElementById('cursorDot');
+const ring=document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX;my=e.clientY;
+  dot.style.left=mx+'px';dot.style.top=my+'px';
+});
+(function animRing(){
+  rx+=(mx-rx)*.13;ry+=(my-ry)*.13;
+  ring.style.left=rx+'px';ring.style.top=ry+'px';
+  requestAnimationFrame(animRing);
+})();
+
+// Star canvas
+const canvas=document.getElementById('starCanvas');
+const ctx=canvas.getContext('2d');
+let stars=[];
+function resizeCanvas(){canvas.width=window.innerWidth;canvas.height=window.innerHeight;initStars()}
+function initStars(){
+  stars=[];
+  for(let i=0;i<80;i++)stars.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*2+.5,a:Math.random(),da:(Math.random()-.5)*.008+.003});
+}
+function drawStars(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  stars.forEach(s=>{
+    s.a+=s.da;if(s.a>1||s.a<0)s.da*=-1;
+    ctx.beginPath();ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+    ctx.fillStyle=`rgba(212,96,122,${s.a*.4})`;ctx.fill();
+  });
+  requestAnimationFrame(drawStars);
+}
+window.addEventListener('resize',resizeCanvas);
+resizeCanvas();drawStars();
+
+// Petals
+const pw=document.getElementById('petals');
+const pColors=['#f0a0b4','#fce8ee','#f7c5ce','#fbd0a8','#e8b4c8','#f5d0e8','#fce4c8'];
+function makePetal(){
+  const p=document.createElement('div');p.className='petal';
+  const sz=10+Math.random()*18;
+  p.style.cssText=`left:${Math.random()*100}vw;width:${sz}px;height:${sz*1.4}px;background:${pColors[Math.floor(Math.random()*pColors.length)]};animation-duration:${5+Math.random()*8}s;animation-delay:${Math.random()*3}s;transform:rotate(${Math.random()*360}deg);border-radius:${Math.random()>.5?'50% 0 50% 0':'0 50% 0 50%'};opacity:${0.5+Math.random()*0.5}`;
+  pw.appendChild(p);setTimeout(()=>p.remove(),14000);
+}
+setInterval(makePetal,250);
+for(let i=0;i<20;i++)setTimeout(makePetal,i*100);
+
+// Scroll reveal
+const reveal=new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*130);reveal.unobserve(e.target)}
+  });
+},{threshold:.15});
+document.querySelectorAll('.wish-card,.quote-text,.quote-author,.letter-paper,.finale-big,.finale-sub').forEach(el=>reveal.observe(el));
+
+// Sparkles
+const sparks=['💖','🌸','✨','💕','🌷','⭐','🌺','💗','🌼'];
+document.addEventListener('click',e=>{
+  for(let i=0;i<4;i++){
+    const s=document.createElement('div');s.className='sparkle';
+    s.textContent=sparks[Math.floor(Math.random()*sparks.length)];
+    const ox=(Math.random()-.5)*60,oy=(Math.random()-.5)*60;
+    s.style.cssText=`left:${e.clientX+ox}px;top:${e.clientY+oy}px;animation-delay:${i*.07}s`;
+    document.body.appendChild(s);setTimeout(()=>s.remove(),1000);
+  }
+});
+
+// Music
+document.getElementById('audioFile').addEventListener('change',function(){
+  if(this.files[0]){
+    const el=document.getElementById('audioEl');
+    el.src=URL.createObjectURL(this.files[0]);
+    document.getElementById('audioPlayer').style.display='block';
+    el.play();
+  }
+});
+</script>
+</body>
+</html>
