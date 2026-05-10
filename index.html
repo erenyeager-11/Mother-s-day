@@ -238,10 +238,12 @@ audio{border-radius:60px;max-width:380px;width:100%}
 <!-- MUSIC -->
 <section class="music-wrap">
   <p class="music-title">Your Song for Her</p>
-  <p class="music-sub">Upload a melody that captures everything words cannot</p>
-  <label class="upload-label" for="audioFile">♪ &nbsp; Choose a Music File</label>
-  <input type="file" id="audioFile" accept="audio/*">
-  <div id="audioPlayer"><audio controls id="audioEl"></audio></div>
+  <p class="music-sub">A melody that captures everything words cannot</p>
+  <div id="audioPlayer" style="position:relative;z-index:2;margin-top:10px">
+    <audio controls id="audioEl" loop style="border-radius:60px;max-width:380px;width:100%">
+      <source src="https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/song.mp3" type="audio/mpeg">
+    </audio>
+  </div>
 </section>
 
 <!-- WISHES -->
@@ -409,15 +411,11 @@ document.addEventListener('click',e=>{
   }
 });
 
-// Music
-document.getElementById('audioFile').addEventListener('change',function(){
-  if(this.files[0]){
-    const el=document.getElementById('audioEl');
-    el.src=URL.createObjectURL(this.files[0]);
-    document.getElementById('audioPlayer').style.display='block';
-    el.play();
-  }
-});
+// Auto play on first interaction
+document.addEventListener('click',()=>{
+  const a=document.getElementById('audioEl');
+  if(a&&a.paused){a.play().catch(()=>{})}
+},{once:true});
 </script>
 </body>
 </html>
